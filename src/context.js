@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState, useContext, useEffect, useCallback } from "react";
 
 //url take recipes vegetarian
-const url =
-  "https://api.spoonacular.com/recipes/complexSearch?diet=vegetarian&number=60&query=";
+const url = `https://api.spoonacular.com/recipes/complexSearch?diet=vegetarian&apiKey=${process.env.REACT_APP_API_KEY}&number=60&query=`;
 
 const AppContext = React.createContext();
 
@@ -19,6 +18,7 @@ const AppProvider = ({ children }) => {
       url: `${url}${search}`,
     })
       .then((res) => {
+        console.log(res);
         const { results } = res.data;
         if (results) {
           const newRecipes = results.map((item) => {

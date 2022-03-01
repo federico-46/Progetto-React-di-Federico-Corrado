@@ -13,7 +13,7 @@ const SingleRecipe = () => {
     async function getSingleRecipe() {
       await axios({
         method: "GET",
-        url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false`,
+        url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}`,
       })
         .then((res) => {
           if (res.data) {
