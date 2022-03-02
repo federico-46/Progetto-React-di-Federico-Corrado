@@ -18,7 +18,6 @@ const AppProvider = ({ children }) => {
       url: `${url}${search}`,
     })
       .then((res) => {
-        console.log(res);
         const { results } = res.data;
         if (results) {
           const newRecipes = results.map((item) => {
